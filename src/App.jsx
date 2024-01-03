@@ -41,20 +41,6 @@ let routers = createBrowserRouter([
 ])
 
 export default function App() {
-  useEffect(() => {
-    // Function to clear local storage
-    const clearLocalStorage = () => {
-      localStorage.clear();
-    };
-
-    // Attach the event listener for beforeunload
-    window.addEventListener('beforeunload', clearLocalStorage);
-
-    // Cleanup the event listener when the component unmounts
-    return () => {
-      window.removeEventListener('beforeunload', clearLocalStorage);
-    };
-  }, []);
   return <>
 
   <StarredContextProvider>

@@ -12,8 +12,9 @@ import { useMediaQuery } from 'react-responsive'
 
 export default function CategorySlider() {
 
-function getCategories(){
-    return axios.get(`https://ecommerce.routemisr.com/api/v1/categories`)
+async function getCategories(){
+    let data = await axios.get(`https://ecommerce.routemisr.com/api/v1/categories`)
+    console.log(data);
 }
 const isSmallScreen = useMediaQuery({ maxWidth: 576 });
 const isSmallMeduim = useMediaQuery({ minWidth: 576 });

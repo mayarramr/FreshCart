@@ -45,7 +45,7 @@ export default function Navbar() {
 
         {userToken !== null ? <>
         <li className="nav-item">
-                  <NavLink className={isActiveLink("/home") ? 'nav-link bg-main rounded-3 me-3 text-white' :'nav-link me-3'} to="/">Home</NavLink>
+                  <NavLink className={isActiveLink("/home") ? 'nav-link bg-main rounded-3 me-3 text-white' :'nav-link me-3'} to="/home">Home</NavLink>
                 </li>
                 <li className="nav-item">
                  <NavLink className={isActiveLink("/categories") ? 'nav-link bg-main rounded-3 me-3 text-white' :'nav-link me-3'} to="/categories">Categories</NavLink>

@@ -41,7 +41,9 @@ export default function ProductDetails() {
             infinite: true,
             speed: 500,
             slidesToShow: 1,
-            slidesToScroll: 1
+            slidesToScroll: 1,
+            autoplay:true,
+            autoplaySpeed:1000    
           };
 
 
@@ -52,15 +54,15 @@ export default function ProductDetails() {
                 <title>{data?.data.data.title}</title>
                 <link rel="canonical" href="http://mysite.com/example" />
             </Helmet>
-     {data?.data.data? <div className="row align-items-center">
+     {data?.data.data ? <div className="row align-items-center">
         <div className="col-md-3 pt-5">
         <div>
             <Slider {...settings}>
-             {data?.data.data?.images.map((image)=>{
+             {data.data.data.images.map((image)=>
                 <div key={data.data.data.id}>
-                    <img src={image} alt="" />
+                    <img className="w-100" src={image} alt="" />
                 </div>
-             })}
+             )}
             </Slider>
           </div>
         </div>
