@@ -1,0 +1,31 @@
+/* YourStylesheet.module.css */
+.overlay {
+    background-color: #000000; 
+    opacity: 0;
+    transform: translateY(20rem);
+    transition: all ease 0.6s;
+    overflow: hidden;
+}
+
+.imageeee:hover .overlay {
+    transform: translateY(0rem);
+    opacity: 0.7;
+}
+
+.imageeee{
+    overflow: hidden;
+    object-fit: cover;
+}
+.white{
+    color: #0aad0a;
+}
+
+/* .categoryitem{
+    width: 300px;
+    height: 400px;
+} */
+.sora{
+    width: 320px;
+    height: 250px;
+    
+}
