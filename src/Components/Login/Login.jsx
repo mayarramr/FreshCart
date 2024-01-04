@@ -7,6 +7,7 @@ import { useNavigate , Link} from 'react-router-dom'
 import { userContext } from '../../Context/UserContext'
 import login from '../../Assets/Images/Mobile login-cuate.png'
 import { Helmet } from 'react-helmet'
+import { useMediaQuery } from 'react-responsive'
 
 
 
@@ -17,6 +18,7 @@ export default function Login() {
     const [error, seterror] = useState(null)
     const [loading, setloading] = useState(false)
     const [visible, setvisible] = useState(false)
+    const isScreenSmall=useMediaQuery({maxWidth:576})
 
     async function submitLogin(values){
         setloading(true)
@@ -89,16 +91,30 @@ export default function Login() {
 
         {loading? <button type="button" className="bg-main btn text-white mt-2">
             <i className="fas fa-spinner fa-spin"></i>
-        </button>:
+        </button>:<>
+
+           {isScreenSmall? <div className="d-flex flex-column align-items-center">
+           <button disabled={!(formik.isValid && formik.dirty)} type="submit" className="bg-main btn text-white mt-2 mx-3">Login</button>
+           <div className="d-flex align-items-center pt-3">
+               <h6>Don't have an account yet ?</h6>
+               <button className="btn bg-main btn ">
+           <Link to={"/register"} className="text-white">Sign Up</Link>
+               </button>
+           </div>
+           </div>
+           :
+           <>
             <div className="d-flex align-items-center justify-content-between">
             <button disabled={!(formik.isValid && formik.dirty)} type="submit" className="bg-main btn text-white mt-2 mx-3">Login</button>
             <div className="d-flex align-items-center pt-3">
                 <h6>Don't have an account yet ?</h6>
-                <button className="btn bg-main btn text-white  mx-2">
+                <button className="btn bg-main btn ">
             <Link to={"/register"} className="text-white">Sign Up</Link>
                 </button>
             </div>
             </div>
+           </>}
+           </>
        }
 
     </form>   

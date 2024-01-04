@@ -33,12 +33,12 @@ export default function Categories() {
             />
         </div>:<><div className="container">
             <div className="row justify-content-around mt-5 pt-5">
-                {data?.data.data.map((category)=> <div key={category._id} className={`${Style.categoryitem} col-md-3 col-5 p-0 m-md-3 overflow-hidden border-main rounded-4`}>
+                {data?.data.data.map((category)=> <div key={category._id} className={`${Style.categoryitem} col-md-3 col-10 m-3 p-0 m-md-3 overflow-hidden border-main rounded-4`}>
                
               <Link to={`/category/${category._id}`}>
               <div className={`position-relative text-center ${Style.imageeee}`}>
                     <div className={`${Style.sora}`}>
-                    <img src={category.image} className="w-100 rounded-3" alt="" />
+                    <img src={category.image} className="w-100 h-100 rounded-3" alt="" />
                     </div>
                     <div className={`${Style.overlay} position-absolute top-0 end-0 start-0 bottom-0 rounded-3 w-100 mx-auto d-flex align-items-center justify-content-center fs-1 fw-bolder`}> 
                     <div className={`${Style.white}`}>VIEW</div>

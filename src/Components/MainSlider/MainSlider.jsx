@@ -27,7 +27,7 @@ export default function MainSlider() {
 
 
     return <>  
-    <div className="row gx-0 my-3 justify-content-center">
+    <div className="row gx-0 my-5 justify-content-center">
         <div className="col-md-10">
         <Slider {...settings}>
             <img height={400} className="w-100" src={slide1} alt="" />

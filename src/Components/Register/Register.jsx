@@ -5,6 +5,7 @@ import * as Yup from 'yup'
 import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom'
 import register from '../../Assets/Images/Sign up-cuate.png'
+import { useMediaQuery } from 'react-responsive'
 
 
 
@@ -14,6 +15,7 @@ export default function Register() {
     const [loading, setloading] = useState(false)
     const [visible, setvisible] = useState(false)
     const [repassvisible, setrepassvisible] = useState(false)
+    const isScreenSmall=useMediaQuery({maxWidth:576})
 
     async function submitRegister(values){
         setloading(true)
@@ -54,7 +56,7 @@ export default function Register() {
  <div className="row">
  <div className="col-md-6 py-4 d-flex flex-column justify-content-center">
     {error?<div className="alert alert-danger">{error}</div>:''}
-    <h3 className="text-main fw-bolder pb-5">Register Now</h3>
+    <h3 className="text-main fw-bolder py-md-1 pt-5  text-md-start text-center">Register Now</h3>
     <form onSubmit={formik.handleSubmit}>
         <label htmlFor="name">Name :</label>
         <input type="text" className="form-control mb-2" name="name" id="name" value={formik.values.name} onChange={formik.handleChange} onBlur={formik.handleBlur}/>
@@ -90,6 +92,16 @@ export default function Register() {
             <i className="fas fa-spinner fa-spin"></i>
         </button>: 
          <>
+          {isScreenSmall? <div className="d-flex flex-column align-items-center justify-content-between">
+            <button disabled={!(formik.isValid && formik.dirty)} type="submit" className="bg-main btn text-white mt-2 mx-3">Register</button>
+            <div className="d-flex align-items-center pt-3">
+                <h6>Already have an account</h6>
+                <button className="btn bg-main btn text-white  mx-2">
+            <Link to={"/login"} className="text-white">Sign In</Link>
+                </button>
+            </div>
+            </div> : 
+          <>
             <div className="d-flex align-items-center justify-content-between">
             <button disabled={!(formik.isValid && formik.dirty)} type="submit" className="bg-main btn text-white mt-2 mx-3">Register</button>
             <div className="d-flex align-items-center pt-3">
@@ -99,15 +111,27 @@ export default function Register() {
                 </button>
             </div>
             </div>
+          </>
+          }
             </>
        }
         
     </form>   
   </div>
 
+
+
+
+
+
+
+       {isScreenSmall ? '' : 
+       <>
        <div className="col-md-6 pt-5">
         <img src={register} className="w-100" alt="" />
        </div>
+       </>
+       }
 
  </div>
     </>

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import Style from './ChangePass.module.css'
 import { useFormik } from 'formik';
 import axios from 'axios';
@@ -7,6 +7,7 @@ import * as Yup from 'yup'
 import key from '../../Assets/Images/Key-rafiki.png'
 import { Helmet } from 'react-helmet';
 import toast from 'react-hot-toast';
+
 
 const headers = {
     token:localStorage.getItem("userToken")
@@ -43,8 +44,9 @@ export default function ChangePass() {
             }
           } catch (error) {
             // Handle the error
-            console.error('API request failed:', error);
+            console.log(error.response.data.errors.msg);
             setloading(false);
+            seterror(error.response.data.errors.msg)
           }
           
 
@@ -76,13 +78,17 @@ export default function ChangePass() {
                 <link rel="canonical" href="http://mysite.com/example" />
             </Helmet>
     <div className="row mt-4">
-      <div className="col-md-12 d-flex justify-content-center">
-        <img src={key} className="w-25" alt="" />
+      <div className="col-md-3 mx-auto d-flex justify-content-center">
+        <img src={key} className="w-100" alt="" />
       </div>
     </div>
     <div className="row justify-content-center">
   <div className="col-md-8 ">
-    {error?<div className="alert alert-danger">{error}</div>:''}
+    {error?<div className="alert alert-danger">{error}</div>:
+    <>
+    {()=>passnotify()}
+    </>
+    }
    
     <form onSubmit={changePass.handleSubmit}>
         
@@ -119,8 +125,19 @@ export default function ChangePass() {
             <i className="fas fa-spinner fa-spin"></i>
         </button>:
           <div className="d-flex justify-content-center mt-5">
-            <button onClick={() => {passnotify();}} disabled={!(changePass.isValid && changePass.dirty)} type="submit" className="bg-main btn text-white mt-2">Save Password
-      </button>
+           <button
+  onClick={() => {
+    if (!(changePass.isValid && changePass.dirty)) {
+      passnotify();
+    }
+    
+  }}
+  disabled={!(changePass.isValid && changePass.dirty)}
+  type="submit"
+  className="bg-main btn text-white mt-2"
+>
+  Save Password
+</button>
           </div>
        }
 

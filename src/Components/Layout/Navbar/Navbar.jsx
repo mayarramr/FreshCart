@@ -111,7 +111,19 @@ export default function Navbar() {
 <i><img src={tiktok} style={{width:'27px' , height:'27px'}} alt="" /></i>
 </li>
  </div>
-        </> :''}
+        </> :
+        <>
+         <li className="nav-item d-flex align-items-center justify-content-around">
+ <i className="fab fa-facebook mx-2 fa-xl"
+  style={{ color: "#1877f2" }}>
+</i>
+<i className="fab fa-twitter mx-2 fa-xl" style={{ color: "#1da1f2" }}></i>
+<i><img src={instagram} className="mx-1" style={{width:'27px' , height:'27px'}} alt="" /></i>
+<i className="fab fa-youtube mx-2 fa-xl" style={{ color: "#c4302b" }}></i>
+<i><img src={tiktok} style={{width:'27px' , height:'27px'}} alt="" /></i>
+</li>
+        </>
+        }
       
         
       </ul>

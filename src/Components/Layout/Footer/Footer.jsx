@@ -6,8 +6,11 @@ import card from '../../../Assets/Images/card.png'
 import americanexpress from '../../../Assets/Images/american-express.png'
 import googleplay from '../../../Assets/Images/googleplay.webp'
 import appstore from '../../../Assets/Images/appstore.webp'
+import { useMediaQuery } from 'react-responsive'
+
 
 export default function Footer() {
+    const isScreenSmall=useMediaQuery({maxWidth:576})
     return <>
     <div className="bg-light py-4 mt-5 d-flex align-items-end">
     <div className="container">
@@ -25,7 +28,29 @@ export default function Footer() {
                 </div>
         </div>
 
-        <div className="row py-3 justify-content-between border-bottom">
+        {isScreenSmall ? <div className="py-3 border-bottom">
+            <div className="d-flex justify-content-center">
+                <h5>Payment Partners</h5>
+            </div>
+            <div className="d-flex justify-content-evenly">
+            <i className="mx-3"><img src={amazonpay} alt="" style={{width:'70px' , height:'70px'}} /></i>
+                <i className="mx-3"><img src={paypal} alt="" style={{width:'70px' , height:'70px'}} /></i>
+                <i className="mx-3"><img src={americanexpress} alt="" style={{width:'70px' , height:'70px'}} /></i>
+                <i><img src={card} alt="" style={{width:'40px' , height:'40px'}} /></i>
+            </div>
+            <div className="mb-2 d-flex justify-content-center">
+                <h5>Get deliveries with FreshCart</h5>
+                </div>
+              <div className="d-flex justify-content-center">
+              <i className="mx-3"><img src={googleplay} alt="" style={{width:'90px' , height:'40px'}} /></i>
+                <i><img src={appstore} alt="" style={{width:'90px' , height:'40px'}} /></i>
+           
+              </div>
+            
+           
+        </div> :
+    <>
+    <div className="row py-3 justify-content-between border-bottom">
             <div className="col-md-6 d-flex align-items-center">
                 <h5>Payment Partners</h5>
                 <i className="mx-3"><img src={amazonpay} alt="" style={{width:'70px' , height:'70px'}} /></i>
@@ -39,7 +64,8 @@ export default function Footer() {
                 <i><img src={appstore} alt="" style={{width:'90px' , height:'40px'}} /></i>
            
            </div>
-        </div>
+        </div></>    
+    }
     </div>
     </div>
     </>

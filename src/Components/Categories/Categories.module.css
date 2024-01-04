@@ -14,12 +14,16 @@
 
 .imageeee{
     overflow: hidden;
-    object-fit: cover;
 }
 .white{
     color: #0aad0a;
 }
 
+
+.imagecover{
+    height:450px;
+    object-fit: cover;
+}
 /* .categoryitem{
     width: 300px;
     height: 400px;
