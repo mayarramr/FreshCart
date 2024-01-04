@@ -80,7 +80,7 @@ export default function Cart() {
         <button className=" bg-danger text-white btn  " onClick={clearcart}>Clear Cart</button>
  
      </div>
-        {cartDetails.data.products.map((product)=> 
+        {cartDetails?.data.products.map((product)=> 
         <div className="row my-3 border-bottom pb-2" key={product.product.id}>
             <div className="col-md-2 col-5">
                 <img src={product.product.imageCover} className='w-100 rounded-2' alt="" />

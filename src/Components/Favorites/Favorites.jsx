@@ -104,7 +104,7 @@ async function removefavItem(id) {
                    </div>
                <div className="container p-5">
                <div className="row g-5 gx-5 justify-content-center">
-              {FavDetails.data.map((product) => (
+              {FavDetails?.data.map((product) => (
                
                   <div className="col-md-2 m-md-3 col-6 p-3 greenShadow "  key={product._id}>
                    <Link to={`/productdetails/${product._id}`} >

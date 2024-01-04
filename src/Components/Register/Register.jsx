@@ -78,7 +78,7 @@ export default function Register() {
         
         <label htmlFor="rePassword">Repassword :</label>
        <div className="position-relative">
-       <input type="password" className="form-control mb-2" name="rePassword" id="rePassword" value={formik.values.rePassword} onChange={formik.handleChange} onBlur={formik.handleBlur}/>
+       <input type={repassvisible? 'text' : 'password'} className="form-control mb-2" name="rePassword" id="rePassword" value={formik.values.rePassword} onChange={formik.handleChange} onBlur={formik.handleBlur}/>
         {formik.errors.rePassword && formik.touched.rePassword?<div className="alert p-2 mt-2 alert-danger">{formik.errors.rePassword}</div>:''}
         <div onClick={()=> setrepassvisible(!repassvisible)} className="p-2 position-absolute top-0 end-0">{repassvisible? <><i className="fa-regular fa-eye text-main"></i></>  : <><i className="fa-regular fa-eye-slash text-main"></i></>}</div>
 
