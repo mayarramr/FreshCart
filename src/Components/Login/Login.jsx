@@ -42,7 +42,7 @@ export default function Login() {
 
     let validateSchema = Yup.object({
         email:Yup.string().email('Email is invalid.').required('Email is required.'),
-        password:Yup.string().matches(/^[A-Z][a-z0-9]{5,10}$/ , 'Password must starts with uppercase.').required('Password is required.'),
+        password:Yup.string().matches(/^(?=.*[A-Z])[A-Za-z0-9]{8,}$/ , 'Password must start with an uppercase letter and be at least 8 characters long.').required('Password is required.'),
     })
 
     let formik = useFormik({

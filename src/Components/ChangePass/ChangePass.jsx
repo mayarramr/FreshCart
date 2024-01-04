@@ -52,7 +52,7 @@ export default function ChangePass() {
 
     }
     let validateSchema = Yup.object({
-        password:Yup.string().matches(/^[A-Z][a-z0-9]{5,10}$/ , 'Password must starts with uppercase.').required('Password is required.'),
+        password:Yup.string().matches(/^(?=.*[A-Z])[A-Za-z0-9]{8,}$/, 'Password must starts with uppercase.').required('Password is required.'),
         rePassword:Yup.string().oneOf([Yup.ref("password")] , 'Password and repassword don`t match').required('Repassword is required')
     })
 

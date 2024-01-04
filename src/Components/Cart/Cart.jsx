@@ -128,7 +128,11 @@ export default function Cart() {
 
   </div> :
   <div>
-          <img src={emptycart} className=" w-100 mt-5" alt="" />
+          <div className="row justify-content-center">
+            <div className="col-md-5">
+            <img src={emptycart} className="w-100 mt-5" alt="" />
+            </div>
+          </div>
           <h2 className="text-center">YOUR CART IS EMPTY.</h2>
         </div>
   }

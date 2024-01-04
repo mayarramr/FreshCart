@@ -37,7 +37,7 @@ export default function Register() {
         name:Yup.string().min(3 , 'Minimum name length is 3.').max(10 , 'Maximum name length is 15.').required('Name is required.'),
         email:Yup.string().email('Email is invalid.').required('Email is required.'),
         phone:Yup.string().matches(phoneRegex, 'Phone number is invalid').required('Phone number is required'),
-        password:Yup.string().matches(/^[A-Z][a-z0-9]{5,10}$/ , 'Password must starts with uppercase.').required('Password is required.'),
+        password:Yup.string().matches(/^(?=.*[A-Z])[A-Za-z0-9]{8,}$/ , 'Password must start with an uppercase letter and be at least 8 characters long').required('Password is required.'),
         rePassword:Yup.string().oneOf([Yup.ref("password")] , 'Password and repassword don`t match').required('Repassword is required')
     })
 
